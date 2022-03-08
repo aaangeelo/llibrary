@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Library</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="wrapper wrapper-header">
+        <h1 class="logo">lib</h1>
+        <button class="button button-add" id="button-add">Add</button>
+      </div>
+    </header>
+    <main class="main">
+      <div class="wrapper wrapper-main">
+        <div class="category category-title">
+          <h3 class="heading heading-title">Title</h3>
+        </div>
+        <div class="category category-author">
+          <h3 class="heading heading-author">Author</h3>
+        </div>
+        <div class="category category-pages">
+          <h3 class="heading heading-pages">Pages</h3>
+        </div>
+        <div class="category category-status">
+          <h3 class="heading heading-status">Status</h3>
+        </div>
+      </div>
+    </main>
+    <div class="popup" id="popup">
+      <div class="popup__content">
+        <div class="popup__close" id="popup__close">&times;</div>
+        <h2 class="popup__title">Add Book</h2>
+        <form class="form">
+          <label for="form__item-title"
+            >Title
+            <input
+              type="text"
+              class="form__item form__item-title"
+              id="form__item-title"
+            />
+          </label>
+          <label for="form__item-author"
+            >Author
+            <input
+              type="text"
+              class="form__item form__item-author"
+              id="form__item-author"
+            />
+          </label>
+          <label for="form__item-pages"
+            >Pages
+            <input
+              type="number"
+              class="form__item form__item-pages"
+              id="form__item-pages"
+              min="0"
+            />
+          </label>
+          <div class="form__status">
+            <label for="not-read">
+              Not read
+              <input
+                type="radio"
+                class="form__radio form__item-status"
+                id="not-read"
+                name="isRead"
+                value="false"
+                checked
+              />
+            </label>
+            <label for="read">
+              Read
+              <input
+                type="radio"
+                class="form__radio form__item-status"
+                id="read"
+                name="isRead"
+                value="true"
+              />
+            </label>
+          </div>
+          <button type="button" class="button button-submit">Submit</button>
+        </form>
+      </div>
+      <div id="overlay"></div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>

@@ -92,7 +92,6 @@ function addBookToLibrary() {
   popup.style.display = "none";
   formItems.forEach((item) => (item.value = ""));
   bookID++;
-  console.log(bookID);
 }
 
 function editBook(e) {
@@ -101,10 +100,7 @@ function editBook(e) {
       const book = e.target.parentNode;
 
       for (let i = 0; i < myLibrary.length; i++) {
-        if (myLibrary[i].id == book.id) {
-          myLibrary.splice(i, 1);
-          break;
-        }
+        if (myLibrary[i].id == book.id) myLibrary.splice(i, 1);
       }
 
       while (book.hasChildNodes()) {
@@ -112,7 +108,18 @@ function editBook(e) {
       }
       book.remove();
     } else if (className === "button-status") {
-      console.log(e);
+      const book = e.target.parentNode;
+
+      for (let i = 0; i < myLibrary.length; i++) {
+        if (myLibrary[i].id == book.id) {
+          if (myLibrary[i].status === "Not Read") myLibrary[i].status = "Read";
+          else if (myLibrary[i].status === "Read")
+            myLibrary[i].status = "Not Read";
+        }
+      }
+
+      if (e.target.innerHTML === "Not Read") e.target.innerHTML = "Read";
+      else if (e.target.innerHTML === "Read") e.target.innerHTML = "Not Read";
     }
   }
 }

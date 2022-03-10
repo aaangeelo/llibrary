@@ -7,10 +7,7 @@ const wrapperMain = document.querySelector(".wrapper-main");
 const formItems = document.querySelectorAll(".form__item");
 const formSubmit = document.getElementById("button-submit");
 
-let editBooks = document.querySelectorAll(".button-delete");
-
 let bookID = 0;
-
 let myLibrary = [];
 
 function Book(title, author, pages, status, id) {
@@ -42,12 +39,13 @@ Book.prototype.displayBook = function () {
   const bookPages = document.createElement("div");
   bookPages.classList.add("book__info");
   bookPages.classList.add("book__info-pages");
-  bookPages.innerHTML = `Pages: ${this.pages}`;
+  bookPages.innerHTML = `${this.pages} pages`;
   book.appendChild(bookPages);
 
   const buttonStatus = document.createElement("button");
   buttonStatus.classList.add("btn");
   buttonStatus.classList.add("button-status");
+  if (this.status === "Read") buttonStatus.classList.add("button-status-read");
   buttonStatus.innerHTML = this.status;
   book.appendChild(buttonStatus);
 
@@ -57,11 +55,6 @@ Book.prototype.displayBook = function () {
   buttonDelete.innerHTML = "Delete";
   book.appendChild(buttonDelete);
 };
-
-function showBook() {
-  for (book of myLibrary) {
-  }
-}
 
 function validateInput() {
   formItems.forEach((item) => {
@@ -118,8 +111,13 @@ function editBook(e) {
         }
       }
 
-      if (e.target.innerHTML === "Not Read") e.target.innerHTML = "Read";
-      else if (e.target.innerHTML === "Read") e.target.innerHTML = "Not Read";
+      if (e.target.innerHTML === "Not Read") {
+        e.target.innerHTML = "Read";
+        e.target.classList.add("button-status-read");
+      } else if (e.target.innerHTML === "Read") {
+        e.target.innerHTML = "Not Read";
+        e.target.classList.remove("button-status-read");
+      }
     }
   }
 }

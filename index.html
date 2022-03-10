@@ -15,7 +15,24 @@
     </header>
     <main class="main">
       <div class="wrapper wrapper-main">
-        <button class="button button-add" id="button-add">Add</button>
+        <button class="button button-add" id="button-add">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-plus-circle"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="16"></line>
+            <line x1="8" y1="12" x2="16" y2="12"></line></svg
+          >Add Book
+        </button>
       </div>
     </main>
     <div class="popup" id="popup">
@@ -54,9 +71,9 @@
             />
             <div class="error-message">Please fill out this field</div>
           </label>
-          <div class="form__status">
-            <label for="not-read">
-              Not read
+          <div>
+            <label>Status</label>
+            <div class="form__status">
               <input
                 type="radio"
                 class="form__radio form__item-status"
@@ -65,9 +82,7 @@
                 value="Not Read"
                 checked
               />
-            </label>
-            <label for="read">
-              Read
+              <label for="not-read" class="radioLabel"> Not read </label>
               <input
                 type="radio"
                 class="form__radio form__item-status"
@@ -75,7 +90,8 @@
                 name="status"
                 value="Read"
               />
-            </label>
+              <label for="read" class="radioLabel"> Read </label>
+            </div>
           </div>
           <button type="button" class="button button-submit" id="button-submit">
             Submit

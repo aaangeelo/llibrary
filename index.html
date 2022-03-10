@@ -16,7 +16,7 @@
     </header>
     <main class="main">
       <div class="wrapper wrapper-main">
-        <button class="btn-add">
+        <button data-modal-target="#modal" class="btn-add">
           <svg
             class="btn-add__icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -61,6 +61,11 @@
         </div>
       </div>
     </main>
-    <div class="popup"></div>
+    <div class="modal" id="modal">
+      <div class="modal__content">
+        <div data-close-button class="modal__close">&times;</div>
+      </div>
+    </div>
+    <div id="overlay"></div>
   </body>
 </html>

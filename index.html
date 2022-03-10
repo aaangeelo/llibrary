@@ -16,7 +16,7 @@
     </header>
     <main class="main">
       <div class="wrapper wrapper-main">
-        <button data-modal-target="#modal" class="btn-add">
+        <button class="btn-add">
           <svg
             class="btn-add__icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +63,59 @@
     </main>
     <div class="modal" id="modal">
       <div class="modal__content">
-        <div data-close-button class="modal__close">&times;</div>
+        <div class="modal__close">&times;</div>
+        <h2 class="modal__header">Add Book</h2>
+        <div class="form">
+          <div class="form__block">
+            <label for="form__txt-title" class="form__label">Title</label>
+            <input
+              type="text"
+              class="form__txt"
+              id="form__txt-title"
+              required
+            />
+            <div class="form__error-message">Please fill out this field</div>
+          </div>
+          <div class="form__block">
+            <label for="form__txt-author" class="form__label">Author</label>
+            <input
+              type="text"
+              class="form__txt"
+              id="form__txt-author"
+              required
+            />
+            <div class="form__error-message">Please fill out this field</div>
+          </div>
+          <div class="form__block">
+            <label for="form__txt-number" class="form__label">Pages</label>
+            <input
+              type="number"
+              class="form__txt"
+              id="form__txt-number"
+              required
+            />
+            <div class="form__error-message">Please fill out this field</div>
+          </div>
+          <div class="form__block">
+            <label class="form__label">Status</label>
+            <div class="form__status">
+              <div class="form__block-status">
+                <label for="form__radio-not-read">Not Read</label>
+                <input
+                  type="radio"
+                  class="form__radio"
+                  id="form__radio-not-read"
+                  checked
+                />
+              </div>
+              <div class="form__block-status">
+                <label for="form__radio-read">Read</label>
+                <input type="radio" class="form__radio" id="form__radio-read" />
+              </div>
+            </div>
+          </div>
+          <button class="btn-submit">Submit</button>
+        </div>
       </div>
     </div>
     <div id="overlay"></div>

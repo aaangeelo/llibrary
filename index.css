@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --Monsterrat-Family: "Montserrat", Helvetica, Arial, sans-serif;
+  --Roboto-Family: "Roboto", "Montserrat", Helvetica, Arial, sans-serif;
+  /* COLORS */
+  --sweet-brown: #a73730;
+  --egg-shell: #e5e3c9;
+  --dark-blue-green: #646f4b;
+  --teal-blue: #2d728f;
+  --coral: #f78154;
+}
+
+body {
+  font-family: var(--Monsterrat-Family);
+}
+
+.header {
+  background-color: white;
+}
+
+.wrapper {
+  width: 1024px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.wrapper-header {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 3.5rem;
+  font-weight: 800;
+  flex: 1;
+}
+
+.main {
+  background-color: var(--egg-shell);
+  min-height: 100vh;
+}
+
+.wrapper-main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(300px, 1fr);
+  gap: 30px;
+}
+
+.btn-add {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--coral);
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-add__icon {
+  width: 75px;
+  height: 75px;
+}
+
+.book {
+  background-color: white;
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: 2fr repeat(4, 1fr);
+  place-items: center;
+}
+
+.book__info {
+  font-weight: 500;
+  text-align: center;
+}
+
+.book__info-title {
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.book__info-pages {
+  align-self: start;
+}
+
+.book-info__btns {
+  place-self: stretch;
+  border: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: white;
+}
+
+.book__info-status {
+  background-color: var(--dark-blue-green);
+}
+
+.book__info-status-read {
+  background-color: var(--teal-blue);
+}
+
+.book__info-remove {
+  background-color: var(--sweet-brown);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}

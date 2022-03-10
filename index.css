@@ -214,6 +214,10 @@ body {
   visibility: hidden;
 }
 
+.required:invalid + .form__error-message {
+  visibility: visible;
+}
+
 .form__status {
   display: flex;
   align-items: center;

@@ -69,6 +69,12 @@ function validateInput() {
   return true;
 }
 
+function showBook() {
+  myLibrary.forEach((book) => {
+    console.log(book);
+  });
+}
+
 function addBookToLibrary() {
   if (!validateInput()) return;
 
@@ -79,7 +85,6 @@ function addBookToLibrary() {
   const id = bookID;
 
   const newBook = new Book(title, author, pages, status, id);
-  newBook.displayBook();
   myLibrary.push(newBook);
 
   popup.style.display = "none";
@@ -87,46 +92,9 @@ function addBookToLibrary() {
   bookID++;
 }
 
-function editBook(e) {
-  for (className of e.target.classList) {
-    if (className === "button-delete") {
-      const book = e.target.parentNode;
-
-      for (let i = 0; i < myLibrary.length; i++) {
-        if (myLibrary[i].id == book.id) myLibrary.splice(i, 1);
-      }
-
-      while (book.hasChildNodes()) {
-        book.removeChild(book.firstChild);
-      }
-      book.remove();
-    } else if (className === "button-status") {
-      const book = e.target.parentNode;
-
-      for (let i = 0; i < myLibrary.length; i++) {
-        if (myLibrary[i].id == book.id) {
-          if (myLibrary[i].status === "Not Read") myLibrary[i].status = "Read";
-          else if (myLibrary[i].status === "Read")
-            myLibrary[i].status = "Not Read";
-        }
-      }
-
-      if (e.target.innerHTML === "Not Read") {
-        e.target.innerHTML = "Read";
-        e.target.classList.add("button-status-read");
-      } else if (e.target.innerHTML === "Read") {
-        e.target.innerHTML = "Not Read";
-        e.target.classList.remove("button-status-read");
-      }
-    }
-  }
-}
-
 window.onload = function () {
   popupClose.addEventListener("click", () => (popup.style.display = "none"));
   buttonAdd.addEventListener("click", () => (popup.style.display = "flex"));
-
   formSubmit.addEventListener("click", addBookToLibrary);
-
-  document.body.addEventListener("click", editBook);
+  showBook();
 };

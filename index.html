@@ -35,30 +35,6 @@
           </svg>
           Add Book
         </button>
-        <div class="book">
-          <div class="book__info book__info-title">Book Title</div>
-          <div class="book__info book__info-author">by Book Author</div>
-          <div class="book__info book__info-pages">123 pages</div>
-          <button class="book__info book__info-status book-info__btns">
-            Not Read
-          </button>
-          <button class="book__info book__info-remove book-info__btns">
-            Remove
-          </button>
-        </div>
-        <div class="book">
-          <div class="book__info book__info-title">Book Title</div>
-          <div class="book__info book__info-author">by Book Author</div>
-          <div class="book__info book__info-pages">123 pages</div>
-          <button
-            class="book__info book__info-status book__info-status-read book-info__btns"
-          >
-            Read
-          </button>
-          <button class="book__info book__info-remove book-info__btns">
-            Remove
-          </button>
-        </div>
       </div>
     </main>
     <div class="modal" id="modal">
@@ -103,7 +79,7 @@
                 <input
                   type="radio"
                   class="form__radio"
-                  name="form__radio"
+                  name="status"
                   id="form__radio-not-read"
                   value="Not Read"
                   checked
@@ -116,7 +92,7 @@
                 <input
                   type="radio"
                   class="form__radio"
-                  name="form__radio"
+                  name="status"
                   id="form__radio-read"
                   value="Read"
                 />

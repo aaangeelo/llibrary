@@ -5,6 +5,8 @@ const overlay = document.getElementById("overlay");
 const wrapperMain = document.querySelector(".wrapper-main");
 const formInputs = document.querySelectorAll(".form__txt");
 const submitInputBtn = document.querySelector(".btn-submit");
+const bookInfoStats = document.querySelectorAll(".book__info-status");
+const bookInfoRemove = document.querySelectorAll(".book__info-remove");
 let bookID = 0;
 let myLibrary = [];
 
@@ -55,8 +57,8 @@ function addBookToLibrary() {
 
   const newBook = new Book(title, author, pages, status, bookID);
   myLibrary.push(newBook);
-
   bookID++;
+
   displayBooks();
   closeModal();
   clearInputValues();
@@ -85,9 +87,41 @@ function displayBooks() {
   }
 }
 
+function editBook(e) {
+  for (className of e.target.classList) {
+    if (className === "book__info-remove") {
+      const book = e.target.parentNode;
+
+      for (let i = 0; i < myLibrary.length; i++) {
+        if (myLibrary[i].id == book.id) myLibrary.splice(i, 1);
+      }
+
+      while (book.hasChildNodes()) book.removeChild(book.firstChild);
+      book.remove();
+    } else if (className === "book__info-status") {
+      const book = e.target.parentNode;
+
+      for (let i = 0; i < myLibrary.length; i++) {
+        if (myLibrary[i].id == book.id) {
+          if (myLibrary[i].status === "Not Read") {
+            myLibrary[i].status = "Read";
+            e.target.innerHTML = "Read";
+            e.target.classList.add("book__info-status-read");
+          } else if (myLibrary[i].status === "Read") {
+            myLibrary[i].status = "Not Read";
+            e.target.innerHTML = "Not Read";
+            e.target.classList.remove("book__info-status-read");
+          }
+        }
+      }
+    }
+  }
+}
+
 window.onload = function () {
   openModalBtn.addEventListener("click", openModal);
   closeModalBtn.addEventListener("click", closeModal);
   overlay.addEventListener("click", closeModal);
   submitInputBtn.addEventListener("click", addBookToLibrary);
+  wrapperMain.addEventListener("click", editBook);
 };
